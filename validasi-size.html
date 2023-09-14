@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Validasi ukuran foto</title>
+</head>
+
+<body>
+	<p>
+		<input type="file" id="file"
+			onchange="Filevalidation()" />
+	</p>
+
+	<script>
+		Filevalidation = () => {
+			const foto = document.getElementById('file');
+			const fotosize = document.getElementById('file').size;
+			console.log(fotosize);
+			if (foto.files.length > 0) {
+				for (const i = 0; i <= foto.files.length - 1; i++) {
+		
+					const fsize = foto.files.item(i).size;
+					const file = Math.round((fsize / 1024));
+					
+					if (file >= 2048) {
+						alert(
+						"Ukuran lebih dari 2MB");
+					} 
+				}
+			}
+		}
+	</script>
+</body>
+</html>
